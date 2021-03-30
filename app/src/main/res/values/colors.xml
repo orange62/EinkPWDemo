@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+
+    <color name="gray_level_0">#FF000000</color>
+    <color name="gray_level_1">#FF111111</color>
+    <color name="gray_level_2">#FF222222</color>
+    <color name="gray_level_3">#FF333333</color>
+    <color name="gray_level_4">#FF444444</color>
+    <color name="gray_level_5">#FF555555</color>
+    <color name="gray_level_6">#FF666666</color>
+    <color name="gray_level_7">#FF777777</color>
+    <color name="gray_level_8">#FF888888</color>
+    <color name="gray_level_9">#FF999999</color>
+    <color name="gray_level_a">#FFaaaaaa</color>
+    <color name="gray_level_b">#FFbbbbbb</color>
+    <color name="gray_level_c">#FFcccccc</color>
+    <color name="gray_level_d">#FFdddddd</color>
+    <color name="gray_level_e">#FFeeeeee</color>
+    <color name="gray_level_f">#FFffffff</color>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EinkPWDemo</string>
+    <string name="img_description_normal" translatable="false">img</string>
+</resources>
