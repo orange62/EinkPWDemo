@@ -10,6 +10,7 @@ public class MainActivity extends FullScreenBaseActivity implements View.OnClick
 
     private static final String TAG = "MainActivity";
     private View pwView;
+    private View toolbarBack;
     private View toolbarPenWidth;
     private View toolbarPenWidth2;
     private View toolbarUndo;
@@ -23,12 +24,14 @@ public class MainActivity extends FullScreenBaseActivity implements View.OnClick
 
         setContentView(R.layout.activity_main);
 
+        toolbarBack = findViewById(R.id.toolbarBack);
         toolbarPenWidth = findViewById(R.id.toolbarPenWidth);
         toolbarPenWidth2 = findViewById(R.id.toolbarPenWidth2);
         toolbarRectangle = findViewById(R.id.toolbarRectangle);
         toolbarUndo = findViewById(R.id.toolbarUndo);
         toolbarRedo = findViewById(R.id.toolbarRedo);
 
+        toolbarBack.setOnClickListener(this);
         toolbarPenWidth.setOnClickListener(this);
         toolbarPenWidth2.setOnClickListener(this);
         toolbarRectangle.setOnClickListener(this);
@@ -42,7 +45,9 @@ public class MainActivity extends FullScreenBaseActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        if (v == toolbarPenWidth) {
+        if (v == toolbarBack) {
+            finish();
+        } else if (v == toolbarPenWidth) {
             if (einkPWInterface.getDrawObjectType() != PWDrawObjectHandler.DRAW_OBJ_RANDOM) {
                 Log.i(TAG, "OBJECT not RANDOW");
                 einkPWInterface.setDrawObjectType(PWDrawObjectHandler.DRAW_OBJ_RANDOM);
