@@ -52,19 +52,19 @@ gradle.projectsEvaluated **{**
 
 app下build.gradle末尾添加下面的代码，会在build时自动修改顺序
 
-preBuild **{**
-    doLast **{**
-      def imlFile = file(project.name + &quot;.iml&quot;)
-      println &#39;Change &#39; + project.name + &#39;.iml order&#39;
-      try {
-        def parsedXml = (new XmlParser()).parse(imlFile)
-        def jdkNode = parsedXml.component[1].orderEntry.find **{** it.&#39;@type&#39; == &#39;jdk&#39; **}**
-        parsedXml.component[1].remove(jdkNode)
-        def sdkString = &quot;Android API &quot; + android.compileSdkVersion.substring(&quot;android-&quot;.length()) + &quot; Platform&quot;
-        new Node(parsedXml.component[1], &#39;orderEntry&#39;, [&#39;type&#39;: &#39;jdk&#39;, &#39;jdkName&#39;: sdkString, &#39;jdkType&#39;: &#39;Android SDK&#39;])
-         XmlUtil._serialize_(parsedXml, new FileOutputStream(imlFile))
-      } catch (FileNotFoundException ignore) {
-        // nop, iml not found
-      }
-  **}
- }**
+    preBuild {
+        doLast {
+            def imlFile = file(project.name + ".iml")
+            println 'Change ' + project.name + '.iml order'
+            try {
+                def parsedXml = (new XmlParser()).parse(imlFile)
+                def jdkNode = parsedXml.component[1].orderEntry.find { it.'@type' == 'jdk' }
+                parsedXml.component[1].remove(jdkNode)
+                def sdkString = "Android API " + android.compileSdkVersion.substring("android-".length()) + " Platform"
+                new Node(parsedXml.component[1], 'orderEntry', ['type': 'jdk', 'jdkName': sdkString, 'jdkType': 'Android SDK'])
+                XmlUtil.serialize(parsedXml, new FileOutputStream(imlFile))
+            } catch (FileNotFoundException ignore) {
+                // nop, iml not found
+            }
+        }
+    }
