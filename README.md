@@ -12,29 +12,29 @@ compileOnly files(&#39;libs/eink/classes.jar&#39;)
 
 ##### 在项目根目录的 build.gradle下的 allprojects 节点下;
 
-allprojects **{**
-repositories **{**
-google()
- jcenter()
-
-**}**
-
-gradle.projectsEvaluated **{**
-tasks.withType(JavaCompile) **{**
-options.compilerArgs.add(&#39;-Xbootclasspath/p:app/libs/eink/classes.jar&#39;)
-**}
- }
- }**
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            
+        }
+    
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs.add('-Xbootclasspath/p:app/libs/eink/android.jar')
+            }
+        }
+    }
 
 上面的配置可能在有些版本的AS 上面编译不通过，找不到 我们新增加的classes.jar包。这个时候可以用下面的定义看看：
 
-def androidJar = file(&#39;libs/eink/classes.jar&#39;)
-
-gradle.projectsEvaluated **{**
-  tasks.withType(JavaCompile) **{**
-    options.compilerArgs.add(&quot;-Xbootclasspath/p:$androidJar&quot;)
-**}
- }**
+        def androidJar = file('libs/eink/classes.jar')
+    
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs.add("-Xbootclasspath/p:$androidJar")
+            }
+        }
 
 就是通过def 来定义编译的jar包。
 
