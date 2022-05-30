@@ -4,7 +4,7 @@
 
 ### 1. 将classes.jar 放到 libs/eink下(eink是新建的目录), 然后在build.gradle的dependencies 下添加下面语句:
 
-compileOnly files(&#39;libs/eink/classes.jar&#39;)
+    compileOnly files('libs/eink/android.jar')
 
 注意：一定要用compileOnly，运行的时候不需要这个 classes.jar。
 
@@ -44,7 +44,7 @@ compileOnly files(&#39;libs/eink/classes.jar&#39;)
 
 ##### 手动修改iml顺序
 
-\&lt;orderEntry type=&quot;jdk&quot; jdkName=&quot;Android API 25 Platform&quot; jdkType=&quot;Android SDK&quot; /\&gt;
+`<orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK"/>`
 
 注意：不同的 android版本上面的API版本可能配置不一样。如果是8.1SDK，可能需要改为 API 27.
 
